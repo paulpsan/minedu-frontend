@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="row justify-content-md-center m-1">
+        <div class="card bg-light col-md-6 col-sm-12" style="padding: 0;">
+            <div class="card-header">Crear usuario
+            </div>
+            <div class="card-body">
+                <form novalidate [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                    <fieldset>
+                        <div class="form-group">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Nombre" formControlName="nombre">
+                            </mat-form-field>
+                        </div>
+                        <div class="form-group">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Carnet de identidad" formControlName="ci">
+                            </mat-form-field>
+                        </div>
+                    </fieldset>
+
+                    <div class="form-group">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Email" formControlName="email">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" name="" id="" (click)="show=!show" value="{{show}"> 3ra Persona
+                        </label>
+                    </div>
+                    <div *ngIf="show">
+                        <fieldset>
+                            <div class="form-group">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Nombre" formControlName="nombre2">
+                                </mat-form-field>
+                            </div>
+                            <div class="form-group">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Carnet de identidad" formControlName="ci2">
+                                </mat-form-field>
+                            </div>
+
+
+                            <div class="form-group">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Email" formControlName="email2">
+                                </mat-form-field>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="file" placeholder="File">
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <button mat-button [disabled]="!userForm.valid" type="submit" color="primary">
+                        <mat-icon mat-list-icon>done</mat-icon>
+                        Aceptar
+                    </button>
+                    <button mat-button routerLink="/usuarios" color="warn">
+                        <mat-icon mat-list-icon>cancel</mat-icon>
+                        Cancelar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
